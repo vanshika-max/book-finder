@@ -7,6 +7,10 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
+  background-image:url('lib.jpg'); /* Specify the path to your image */
+  background-size: cover; /* Ensures the image covers the entire body area */
+  background-position: center; /* Centers the image in the body */
+  background-repeat: no-repeat; /* Prevents the image from repeating */;
 }
 
 .library-container {
@@ -85,11 +89,11 @@ body {
   top: 20px;
   right: 20px;
   padding: 10px 15px;
-  background-color: #28a745;
-  color: white;
+  background-color: #2850a7;
+  color: rgb(245, 245, 245);
   border: none;
   border-radius: 5px;
-  font-size: 1em;
+  font-size: 2em;
   cursor: pointer;
   transition: background-color 0.3s, transform 0.2s;
 }
