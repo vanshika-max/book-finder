@@ -87,7 +87,7 @@ body {
 .map-button {
   position: fixed;
   top: 20px;
-  right: 20px;
+  left: 20px;
   padding: 10px 15px;
   background-color: #2850a7;
   color: rgb(245, 245, 245);
@@ -122,14 +122,14 @@ body {
 
 .back-button {
   position: absolute;
-  top: 20px;
+  top: 40px;
   left: 20px;
   padding: 10px 15px;
-  background-color: #dc3545;
+  background-color: #170b0c;
   color: white;
   border: none;
   border-radius: 5px;
-  font-size: 1em;
+  font-size: 2em;
   cursor: pointer;
   transition: background-color 0.3s, transform 0.2s;
 }
@@ -159,10 +159,11 @@ body {
 
 .map-dropdown {
   margin-top: 10px;
-  border: 1px solid #ddd;
-  background-color: #ffffff;
+  border: 2px solid #ada6a6;
+  background-color: #ba9c9c;
   border-radius: 5px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(88, 87, 87, 0.1);
+  font-size: 4px;
   overflow: hidden;
 }
 
@@ -171,12 +172,14 @@ body {
   padding: 10px 15px;
   cursor: pointer;
   background-color: #ffffff;
-  border-bottom: 1px solid #ddd;
+  font-size: 30px;
+  border-bottom: 2px solid #ddd;
   transition: background-color 0.3s;
 }
 
 .map-option:hover {
-  background-color: #f1f1f1;
+  background-color: #3507cb;
+  
 }
 
 .map-option:last-child {
