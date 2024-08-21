@@ -13,9 +13,11 @@ function App() {
     const [location, setLocation] = useState(null);
     const [showMap, setShowMap] = useState(false);
     const [selectedFloor, setSelectedFloor] = useState(null);
+    const [error, setError] = useState('');
 
     const handleSearch = async (e) => {
         e.preventDefault();
+        setError('');
         const response = await fetch('http://localhost:5000/get-location', {
             method: 'POST',
             headers: {
@@ -25,7 +27,12 @@ function App() {
         });
 
         const data = await response.json();
-        setLocation(data);
+        if (data && data.row && data.rack && data.floor) {
+            setLocation(data);
+        } else {
+            setLocation(null);
+            setError('Location not found');
+        }
     };
 
     const handleMapButtonClick = () => {
@@ -75,6 +82,11 @@ function App() {
                     />
                     <button type="submit" className="search-button">Find Book</button>
                 </form>
+                {error && (
+                    <div className="error-message">
+                        <p>{error}</p>
+                    </div>
+                )}
 
                 {location && (
                     <div className="location-info">
