@@ -142,28 +142,28 @@ body {
   transform: scale(0.98);
 }
 
-
-.map-image {
-  width: 1200px; /* or any value you prefer */
-  height: auto;  /* maintains the aspect ratio */
-  overflow: hidden;
-  position: relative;
-  margin-top: 20px;
-}
-
 .map-image img {
   width: 100%;
   height: auto;
   border-radius: 5px;
 }
 
+.map-image {
+  width: 100%; 
+  max-width: 700px; 
+  height: auto;  
+  overflow: hidden;
+  position: relative;
+  margin-top: 20px;
+}
+
 .map-dropdown {
   margin-top: 10px;
   border: 2px solid #ada6a6;
   background-color: #ba9c9c;
-  border-radius: 5px;
+  border-radius: 4px;
   box-shadow: 0 4px 8px rgba(88, 87, 87, 0.1);
-  font-size: 4px;
+  font-size: 3px;
   overflow: hidden;
 }
 
