@@ -18,21 +18,32 @@ function App() {
     const handleSearch = async (e) => {
         e.preventDefault();
         setError('');
-        const response = await fetch('http://localhost:5000/get-location', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ bookName, authorName }),
-        });
-
-        const data = await response.json();
-        if (data && data.row && data.rack && data.floor) {
-            setLocation(data);
-        } else {
-            setLocation(null);
-            setError('Location not found');
+        if (!bookName.trim() || !authorName.trim()) {
+            setError('Both fields are required.');
+            return; 
         }
+        try {
+            const response = await fetch('http://localhost:5000/get-location', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ bookName, authorName }),
+            });
+    
+            const data = await response.json();
+            if (data && data.row && data.rack && data.floor) {
+                setLocation(data);
+            } else {
+                setLocation(null);
+                setError('Location not found');
+            } 
+        } catch (error) {
+            setError('An error occurred while searching for the book.');
+        }
+
+
+        
     };
 
     const handleMapButtonClick = () => {
@@ -72,6 +83,7 @@ function App() {
                         value={bookName} 
                         onChange={(e) => setBookName(e.target.value)} 
                         className="input-field"
+                        
                     />
                     <input 
                         type="text" 
@@ -79,6 +91,7 @@ function App() {
                         value={authorName} 
                         onChange={(e) => setAuthorName(e.target.value)} 
                         className="input-field"
+                        
                     />
                     <button type="submit" className="search-button">Find Book</button>
                 </form>
